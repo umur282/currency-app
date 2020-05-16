@@ -1,0 +1,95 @@
+<div class="header">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-xs-4">
+        <h3>
+          Currency API
+        </h3>
+      </div>
+      <div class="col-xs-4">
+        <p class="lead">
+          {{currencyData.timestamp * 1000 | date: 'd/M/yy, h:mm a': '+2330'}}
+        </p>
+      </div>
+      <div class="col-xs-4">
+        <button type="button"
+                class="btn btn-warning"
+                (click)="onUpdateData()">
+          Update!
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+    <div class="row text-center">
+
+      <div class="col-xs-3">
+        <label for="sourceArray">
+          Source currency:
+        </label>
+        <select multiple name="sourceArray"
+                class="form-control source"
+                (change)="onChangeSource($event)">
+          <option class="text-center"
+                  *ngFor="let currency of currencyArray"
+                  value="{{currency}}"
+                  [selected]="currency === selectedSource">
+            {{currency}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-xs-3">
+        <label for="targetArray">
+          Target currency:
+        </label>
+        <select multiple name="targetArray"
+                class="form-control target"
+                (change)="onToggleTarget($event)">
+          <option class="text-center"
+                  *ngFor="let currency of currencyArray"
+                  value="{{currency}}"
+                  [ngClass]="{'checked': targetArray.includes(currency)}">
+            {{currency}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-xs-6">
+        <label>
+          {{"1 " + selectedSource + " equals:"}}
+        </label>
+        <ul class="list-group">
+          <li *ngFor="let target of targetArray"
+              class="list-group-item"
+              (click)="onRemoveTarget(target)">
+            {{target + ' / ' + selectedSource + ' = '}}
+            {{currencyData.quotes[target + selectedSource] | number:'1.0-3'}}
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="low-cont">
+  <div class="container">
+    <div class="row text-center">
+      <h4>Change simply source currency:</h4>
+      <div class="form-group">
+        <label class="radio-inline"
+              *ngFor="let source of sourceArray">
+          <input type="radio"
+                 name="optradio"
+                 value={{source}}
+                 [checked]="source === selectedSource"
+                 (change)="onSwitchSource(source)">{{source}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

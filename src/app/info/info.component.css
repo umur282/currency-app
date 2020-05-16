@@ -1,0 +1,88 @@
+/* SELECT*/
+.target .checked {
+  background: linear-gradient(to right, #D8D558, #52a4ff);
+  background-color: #FFC894 !important; /* for IE */
+}
+
+select option:hover,
+select option:focus,
+select option:active,
+select option:checked
+{
+  background: linear-gradient(to right, #D8D558, #52a4ff);
+  background-color: #FFC894 !important; /* for IE */
+  color: #0a0a0a!important;
+}
+
+select[multiple] {
+  height: 55vh;
+}
+
+/* HEADER */
+.header {
+  padding: 20px;
+  background-color: #143914;
+}
+
+.header h3,
+.header p {
+  padding: 0;
+  margin: 0;
+  color: #6EA56E;
+  font-weight: bold;
+}
+
+.header button {
+  color: #143914;
+  font-weight: bold;
+}
+
+/* CONTENT */
+.content {
+  background-color: #24355E;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.content select:hover,
+.content ul:hover{
+  cursor: pointer;
+}
+
+.content select,
+.content li {
+  background-color: #D8D558;
+}
+
+.content label {
+  color: rgb(168, 170, 194);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.content li,
+.content option {
+  color: #0a0a0a;
+  font-weight: 700;
+}
+
+/* LOW CONTENT */
+.low-cont {
+  padding: 20px;
+  background-color: #143914;
+}
+
+.low-cont label,
+.low-cont h4 {
+  color: #6EA56E;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
+.low-cont label:hover,
+.low-cont input:hover {
+  cursor: pointer;
+}
+
