@@ -32,14 +32,15 @@ export class InfoComponent implements OnInit, OnDestroy {
   }
 
   onUpdateData() {
-    this.currencyService.fetchCurriencies() // fetching
-      .then(() => {
-        // Changing source currency
-        this.currencyService.changeSource(this.selectedSource);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.currencyService.fetchCurriencies(); // dummy fetching
+      // .then(() => {
+      //   // Changing source currency
+      //   this.currencyService.changeSource(this.selectedSource);
+      // })
+      // .catch(err => {
+      //   console.log(err);
+      // });
+    this.currencyService.changeSource(this.selectedSource);
   }
 
   onChangeSource(event: InputEvent) {
