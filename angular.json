@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "currency-api"
+    }
+  },
+  "defaultProject": "currency-api",
+  "cli": {
+    "analytics": "fda69ab6-31e9-42fe-908c-02f7e51a557f"
+  }
 }
