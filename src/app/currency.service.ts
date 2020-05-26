@@ -25,7 +25,7 @@ export class CurrencyService {
   // fetchCurriencies(): Promise<void> {
   //   return fetch(
   //     // fetching data from api
-  //     'https://api.currencylayer.com/live' +
+  //     'http://api.currencylayer.com/live' +
   //     '?access_key=' + environment.access_key +
   //     '&format=1'
   //   )
