@@ -55,7 +55,7 @@ export class CurrencyService {
       const newKey: string = keyArray.slice(0,6).join(''); // getting the first 6 items=AEDUSA for qoutes
       const newItem: string = itemArray.join('');  // AED for currencyArray
 
-      newQuotes[newKey] = (1 / value); // creating a new qoutes to finish the manipulation
+      newQuotes[newKey] = value; // creating a new qoutes to finish the manipulation
       this.currencyArray.push(newItem); // finishing the currency Array
     }
 
