@@ -3,12 +3,12 @@
     <div class="row text-center">
       <div class="col-xs-4">
         <h3>
-          Currency API
+          Currency App
         </h3>
       </div>
       <div class="col-xs-4">
         <p class="lead">
-          {{currencyData.timestamp * 1000 | date: 'd/M/yy, h:mm a': '+2330'}}
+          {{currencyData.timestamp * 1000 | date: 'd/M/yy, h:mm a':'+0200'}}
         </p>
       </div>
       <div class="col-xs-4">
@@ -66,8 +66,8 @@
           <li *ngFor="let target of targetArray"
               class="list-group-item"
               (click)="onRemoveTarget(target)">
-            {{target + ' / ' + selectedSource + ' = '}}
             {{currencyData.quotes[target + selectedSource] | number:'1.0-3'}}
+            {{target}}
           </li>
         </ul>
       </div>
