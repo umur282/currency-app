@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-// import { environment } from '../environments/environment';
+import { environment } from '../environments/environment';
 
 // Dummy JSON file
-import apiData from '../assets/apiData.json';
+// import apiData from '../assets/apiData.json';
 
 @Injectable()
 export class CurrencyService {
@@ -14,32 +14,32 @@ export class CurrencyService {
   private currencyArray: string[] = [];
 
   // Dummy API Request
-  fetchCurriencies() {
-    const resp = JSON.parse(JSON.stringify(apiData));
-    this.manipulateData(resp);
+  // fetchCurriencies() {
+  //   const resp = JSON.parse(JSON.stringify(apiData));
+  //   this.manipulateData(resp);
 
-    this.dataSubject.next(this.currencyData);
-    this.arraySubject.next(this.currencyArray);
-  }
-
-  // fetchCurriencies(): Promise<void> {
-  //   return fetch(
-  //     // fetching data from api
-  //     'http://api.currencylayer.com/live' +
-  //     '?access_key=' + environment.access_key +
-  //     '&format=1'
-  //   )
-  //   .then(resp => resp.json())
-  //   .then(resp => {
-  //     this.manipulateData(resp);
-
-  //     this.dataSubject.next(this.currencyData);
-  //     this.arraySubject.next(this.currencyArray);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
+  //   this.dataSubject.next(this.currencyData);
+  //   this.arraySubject.next(this.currencyArray);
   // }
+
+  fetchCurriencies(): Promise<void> {
+    return fetch(
+      // fetching data from api
+      'http://api.currencylayer.com/live' +
+      '?access_key=' + environment.access_key +
+      '&format=1'
+    )
+    .then(resp => resp.json())
+    .then(resp => {
+      this.manipulateData(resp);
+
+      this.dataSubject.next(this.currencyData);
+      this.arraySubject.next(this.currencyArray);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 
   manipulateData(data: CurrencyData) {
     // manipulation of currencyData.quotes
