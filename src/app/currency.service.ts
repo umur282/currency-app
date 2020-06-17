@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { environment } from '../environments/environment';
+// import { environment } from '../environments/environment';
 
 // Dummy JSON file
 // import apiData from '../assets/apiData.json';
@@ -25,9 +25,7 @@ export class CurrencyService {
   fetchCurriencies(): Promise<void> {
     return fetch(
       // fetching data from api
-      'http://api.currencylayer.com/live' +
-      '?access_key=' + environment.access_key +
-      '&format=1'
+      'https://ozdemir-currency-application.herokuapp.com/update'
     )
     .then(resp => resp.json())
     .then(resp => {
